@@ -51,7 +51,7 @@ if page == "🏠 Home":
     cols = st.columns(5)
     for i, img in enumerate(random.sample(all_images, min(5, len(all_images)))):
         with cols[i]:
-            st.image(os.path.join(image_folder, img), use_container_width=True)
+            st.image(os.path.join(image_folder, img), width='stretch')
             name = img.rsplit(".", 1)[0].replace("_", " ").title()
             st.caption(name)
             if img not in st.session_state.watchlist:
@@ -79,7 +79,7 @@ elif page == "🎞️ Library":
         cols = st.columns(4)
         for i, img in enumerate(all_images):
             with cols[i % 4]:
-                st.image(os.path.join(image_folder, img), use_container_width=True)
+                st.image(os.path.join(image_folder, img), width='stretch')
                 st.caption(img.rsplit(".", 1)[0].replace("_", " ").title())
                 if img not in st.session_state.watchlist:
                     if st.button("Add", key=f"add_lib_{i}"):
@@ -100,7 +100,7 @@ elif page == "⭐ Trending":
         cols = st.columns(4)
         for i, img in enumerate(trending):
             with cols[i % 4]:
-                st.image(os.path.join(image_folder, img), use_container_width=True)
+                st.image(os.path.join(image_folder, img), width='stretch')
                 st.caption(f"#{i+1} {img.rsplit('.',1)[0].title()}")
 
 # ===================================================
